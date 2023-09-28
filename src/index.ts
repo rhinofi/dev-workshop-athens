@@ -8,8 +8,9 @@ const configString = readFileSync(configFile).toString()
 const config = JSON.parse(configString)
 
 const userName = process.argv[2]
-const userIP = await fetchMyIp(config.ifconfigUrl)
+fetchMyIp(config.ifconfigUri).then(userIP => {
+    storeIp(userName, userIP)
+})
 
-storeIp(userName, userIP)
 
-await printDataWithCountryCodes(config)
+printDataWithCountryCodes(config)
