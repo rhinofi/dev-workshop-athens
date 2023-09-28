@@ -13,7 +13,7 @@ export const printDataWithCountryCodes = async (
   const allData = getAllData()
 
   for (const ip in allData) {
-    const countryCode = await ipToCountryCode(ip, geolocationApiUri)
+    const countryCode = await ipToCountryCode(geolocationApiUri, ip)
     console.log({ ip, countryCode })
   }
 }
