@@ -2,7 +2,6 @@
 	"compilerOptions": {
 		"composite": true,
 		"declaration": true,
-		// "moduleResolution": "nodenext",
 		"noImplicitAny": true,
 		"outDir": "dist",
 		"rootDir": "src",
@@ -11,7 +10,7 @@
 		"target": "esnext",
 		"module": "nodenext",
 		"types": ["node"],
-    // "noUncheckedIndexedAccess": true,
+		"esModuleInterop": true,
 	},
 	"include": [
 		"src/**/*"

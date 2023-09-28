@@ -5,7 +5,6 @@
   },
   "devDependencies": {
     "@types/node": "18.x",
-    "ts-node": "^10.9.1",
     "tsc-watch": "^6.0.4"
   },
   "files": [
@@ -15,7 +14,9 @@
   "name": "dev-workshop-athens",
   "packageManager": "yarn@4.0.0-rc.48",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc -b",
+    "clean": "rm -fr dist *.tsbuildinfo",
+    "start": "yarn build && yarn node --enable-source-maps ./dist/index.js"
   },
   "typings": "./dist/index.d.ts",
   "type": "module",
