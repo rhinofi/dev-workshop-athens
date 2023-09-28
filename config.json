@@ -1,0 +1,4 @@
+{
+  "ifconfigUri": "https://ifconfig.me/all.json",
+  "geolocationApiUri": "https://api.country.is"
+}
