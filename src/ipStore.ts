@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 
-const storeFile = 'store.json' 
+const storeFile = process.env.STORE_FILE || 'store.json'
 
 export const storeIp = async (name: string, ip: string): Promise<void> => {
   if (!storeFile) {
