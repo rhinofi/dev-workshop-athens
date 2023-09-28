@@ -15,7 +15,6 @@ export const storeIp = (name: string, ip: string): void => {
     name => !!name.match(caseInsensitiveRegexp)
   )
   state[matchingName === undefined ? name : matchingName] = ip
-
   fs.writeFileSync(storeFile, JSON.stringify(state, null, 2))
 }
 
