@@ -1,5 +1,3 @@
-import { readFileSync } from 'node:fs'
-import { fetchMyIp } from './fetchMyIp.js'
 import { getAllData } from './ipStore.js'
 import { ipToCountryCode } from './ipToCountryCode.js'
 
@@ -13,7 +11,7 @@ export const printDataWithCountryCodes = async (
   const allData = getAllData()
 
   for (const ip in allData) {
-    const countryCode = await ipToCountryCode(ip, geolocationApiUri)
+    const countryCode = await ipToCountryCode(geolocationApiUri, ip)
     console.log({ ip, countryCode })
   }
 }

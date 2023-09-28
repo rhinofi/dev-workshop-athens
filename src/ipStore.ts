@@ -1,13 +1,9 @@
 import fs from 'node:fs'
 
-const storeFile = process.env.STORE_FILE
+const storeFile = process.env.STORE_FILE || 'store.json'
 
 export const storeIp = (name: string, ip: string): void => {
-  if (!storeFile) {
-    throw new Error('no storeFile!')
-  }
-
-  const state = JSON.parse(fs.readFileSync(storeFile).toString())
+  const state = getAllData()
   const existingNames = Object.keys(state)
   const caseInsensitiveRegexp = new RegExp(name, 'i')
 
