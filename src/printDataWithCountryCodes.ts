@@ -1,4 +1,3 @@
-import P from '@rhino.fi/aigle'
 import { getAllData } from './ipStore.js'
 import { ipToCountryCode } from './ipToCountryCode.js'
 
@@ -7,8 +6,8 @@ export const printDataWithCountryCodes = async (
 ) => {
   const allData = getAllData()
 
-  await P.parallel(Object.values(allData), async (ip: string) => {
-    const countryCode = await ipToCountryCode(geolocationApiUri, ip)
+  for (const ip of Object.values(allData)) {
+    const countryCode = await ipToCountryCode(geolocationApiUri, ip as string)
     console.log({ ip, countryCode })
-  })
+  }
 }

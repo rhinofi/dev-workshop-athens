@@ -18,6 +18,10 @@ type Config = {
   }
   
   const userName = process.argv[2]
+  if (!userName) {
+    throw new Error('user name does not exist')
+  }
+  
   const userIP = await fetchMyIp(config.ifconfigUri)
   
   storeIp(userName, userIP)
