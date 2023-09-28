@@ -1,16 +1,26 @@
 import { readFileSync } from 'node:fs'
 import { fetchMyIp } from './fetchMyIp.js'
-import { getAllData, storeIp } from './ipStore.js'
-import { ipToCountryCode } from './ipToCountryCode.js'
+import { storeIp } from './ipStore.js'
 import { printDataWithCountryCodes } from './printDataWithCountryCodes.js'
 
-const configFile = process.env.CONFIG_FILE || 'config.json'
-const configString = readFileSync(configFile).toString()
-const config = JSON.parse(configString)
+type Config = {
+  ifconfigUri: string
+  geolocationApiUri: string
+}
 
-const userName = process.argv[3]
-const userIP = await fetchMyIp(config.ifconfigUrl)
+(async () => {
+  const configFile = process.env.CONFIG_FILE || 'config.json'
+  const configString = readFileSync(configFile).toString()
+  const config = JSON.parse(configString) as Config
 
-storeIp(userName, userIP)
-
-await printDataWithCountryCodes(config)
+  if (!config.ifconfigUri || !config.geolocationApiUri) {
+    throw new Error('missing config data')
+  }
+  
+  const userName = process.argv[2]
+  const userIP = await fetchMyIp(config.ifconfigUri)
+  
+  storeIp(userName, userIP)
+  
+  await printDataWithCountryCodes(config.geolocationApiUri)
+})()

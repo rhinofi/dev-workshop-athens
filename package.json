@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@rhino.fi/aigle": "^1.15.0-alpha.3",
     "node-fetch": "^3.3.2",
     "typescript": "5.1.x"
   },

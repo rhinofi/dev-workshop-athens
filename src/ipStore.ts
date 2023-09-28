@@ -9,10 +9,9 @@ export const storeIp = (name: string, ip: string): void => {
 
   const state = JSON.parse(fs.readFileSync(storeFile).toString())
   const existingNames = Object.keys(state)
-  const caseInsensitiveRegexp = new RegExp(name, 'i')
 
   const matchingName = existingNames.find(
-    name => !!name.match(caseInsensitiveRegexp)
+    existingName => existingName.toLowerCase() === name.toLowerCase()
   )
   state[matchingName === undefined ? name : matchingName] = ip
 

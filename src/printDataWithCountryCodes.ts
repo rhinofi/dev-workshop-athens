@@ -1,19 +1,14 @@
-import { readFileSync } from 'node:fs'
-import { fetchMyIp } from './fetchMyIp.js'
+import P from '@rhino.fi/aigle'
 import { getAllData } from './ipStore.js'
 import { ipToCountryCode } from './ipToCountryCode.js'
 
-type Config = {
-  geolocationApiUri: string
-}
-
 export const printDataWithCountryCodes = async (
-  { geolocationApiUri }: Config,
+  geolocationApiUri: string
 ) => {
   const allData = getAllData()
 
-  for (const ip in allData) {
-    const countryCode = await ipToCountryCode(ip, geolocationApiUri)
+  await P.parallel(Object.values(allData), async (ip: string) => {
+    const countryCode = await ipToCountryCode(geolocationApiUri, ip)
     console.log({ ip, countryCode })
-  }
+  })
 }
