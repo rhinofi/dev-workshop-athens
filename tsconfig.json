@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"composite": true,
+		"declaration": true,
+		// "moduleResolution": "nodenext",
+		"noImplicitAny": true,
+		"outDir": "dist",
+		"rootDir": "src",
+		"sourceMap": true,
+		"strict": true,
+		"target": "esnext",
+		"module": "nodenext",
+		"types": ["node"],
+    // "noUncheckedIndexedAccess": true,
+	},
+	"include": [
+		"src/**/*"
+	]
+}

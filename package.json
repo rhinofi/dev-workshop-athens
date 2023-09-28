@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "typescript": "5.1.x"
+  },
+  "devDependencies": {
+    "@types/node": "18.x",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^6.0.4"
+  },
+  "files": [
+    "./dist/*"
+  ],
+  "main": "./dist/index.js",
+  "name": "dev-workshop-athens",
+  "packageManager": "yarn@4.0.0-rc.48",
+  "scripts": {
+    "build": "tsc"
+  },
+  "typings": "./dist/index.d.ts",
+  "type": "module",
+  "version": "0.0.1"
+}

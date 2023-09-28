@@ -1,0 +1,14 @@
+{
+    "rhino-core": {
+        "branch": "dev",
+        "description": "Instructions to deploy the required services for DeversiFi Exchange",
+        "homepage": "",
+        "owner": "rhinofi",
+        "repo": "rhino-core",
+        "rev": "0a2d461fec4f1ed16d4440eced1e414627f06efa",
+        "sha256": "1x5mlky0afw6rqwg747b3aq89zxkvc5bdnvqb45bcw1fhnaylmaz",
+        "type": "tarball",
+        "url": "https://github.com/rhinofi/rhino-core/archive/0a2d461fec4f1ed16d4440eced1e414627f06efa.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}

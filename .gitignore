@@ -1,0 +1,50 @@
+# customization of local env
+.local.shell.nix
+
+# MacOS
+.DS_Store
+
+# sublime-text
+*.sublime-project
+*.sublime-workspace
+
+# node
+node_modules/
+
+# used by build/deploy scripts to store transient state
+.build
+.cache*
+
+# yarn
+.pnp.*
+# NOTE: individual services should un-ignore specific files
+# and subdirs of .yarn. We ignore the whole thing at the
+# top level so that leftover files from projects don't
+# show up in git diff/status when switching branches, in
+# case a project exists on one, but not on the other
+**/.yarn/**
+!.yarn/patches
+!.yarn/patches/**
+!.yarn/sdks
+!.yarn/sdks/**
+!.yarn/versions
+!.yarn/versions/**
+
+yarn-error.log
+
+# typescript output
+dist
+# tsc build cashing info
+*.tsbuildinfo
+
+# IntelliJ IDEA
+.idea/
+
+# vscode
+.vscode
+
+# local database data
+.data/
+
+# various log files
+*.log
